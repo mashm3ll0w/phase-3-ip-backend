@@ -17,7 +17,7 @@ puts "🌱 Seeding vehicles..."
 vehicle1 =
   Vehicle.create(
     registration: "00KA12",
-    type: "Land Cruiser",
+    vehicle_type: "Land Cruiser",
     capacity: 5,
     in_transit: false,
     driver_id: driver1.id,
@@ -26,7 +26,7 @@ vehicle1 =
 vehicle2 =
   Vehicle.create(
     registration: "00KA01",
-    type: "Land Rover",
+    vehicle_type: "Land Rover",
     capacity: 5,
     in_transit: false,
     driver_id: driver2.id,
@@ -35,7 +35,7 @@ vehicle2 =
 vehicle3 =
   Vehicle.create(
     registration: "00KA03",
-    type: "Isuzu FVZ",
+    vehicle_type: "Isuzu FVZ",
     capacity: 3,
     in_transit: false,
     driver_id: driver3.id,
@@ -44,7 +44,7 @@ vehicle3 =
 vehicle4 =
   Vehicle.create(
     registration: "00KA06",
-    type: "Bus",
+    vehicle_type: "Bus",
     capacity: 5,
     in_transit: false,
     driver_id: driver4.id,
@@ -53,7 +53,7 @@ vehicle4 =
 vehicle5 =
   Vehicle.create(
     registration: "00KA08",
-    type: "Subaru Outback",
+    vehicle_type: "Subaru Outback",
     capacity: 4,
     in_transit: false,
     driver_id: driver5.id,
