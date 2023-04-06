@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_04_06_150012) do
+ActiveRecord::Schema.define(version: 2023_04_06_151647) do
 
   create_table "drivers", force: :cascade do |t|
     t.string "name"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2023_04_06_150012) do
     t.integer "capacity"
     t.boolean "in_transit"
     t.integer "driver_id"
-    t.integer "passenger_id"
+    t.integer "route_id"
   end
 
 end
