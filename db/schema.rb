@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_04_06_151647) do
+ActiveRecord::Schema.define(version: 2023_04_06_152146) do
 
   create_table "drivers", force: :cascade do |t|
     t.string "name"
@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 2023_04_06_151647) do
   create_table "routes", force: :cascade do |t|
     t.string "origin"
     t.string "destination"
-    t.integer "vehicle_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
