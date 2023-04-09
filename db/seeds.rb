@@ -86,7 +86,7 @@ pax7 =
 pax8 =
   Passenger.create(name: "Esther", role: "Passenger", vehicle_id: vehicle2.id)
 pax9 =
-  Passenger.create(name: "Esther", role: "Passenger", vehicle_id: vehicle2.id)
+  Passenger.create(name: "Edgar", role: "Passenger", vehicle_id: vehicle2.id)
 
 pax10 = Passenger.create(name: "Frank", role: "Escort", vehicle_id: vehicle3.id)
 pax11 =
