@@ -64,4 +64,24 @@ class ApplicationController < Sinatra::Base
     pax = Passenger.all
     pax.to_json
   end
+
+  get "/passengers/:id" do
+    passenger = Passenger.find(params[:id])
+    passenger.to_json(
+      only: %i[id name role],
+      include: {
+        vehicle: {
+          only: %i[registration, vehicle_type],
+          include: {
+            driver: {
+              only: [:name]
+            },
+            route: {
+              only: %i[origin destination]
+            }
+          }
+        }
+      }
+    )
+  end
 end
