@@ -7,6 +7,18 @@ class ApplicationController < Sinatra::Base
     routes.to_json(include: %i[vehicles drivers passengers])
   end
 
+  get "/routes/:id" do
+    route = Route.find(params[:id])
+    route.to_json(
+      only: %i[id origin destination],
+      include: {
+        vehicles: {
+          only: %i[registration vehicle_type]
+        }
+      }
+    )
+  end
+
   get "/vehicles" do
     vehicles = Vehicle.all
     vehicles.to_json(include: :driver)
