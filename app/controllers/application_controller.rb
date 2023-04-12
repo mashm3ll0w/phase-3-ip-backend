@@ -58,7 +58,7 @@ class ApplicationController < Sinatra::Base
 
   get "/passengers" do
     pax = Passenger.all
-    pax.to_json
+    pax.to_json(include: { vehicle: { include: :route } })
   end
 
   get "/passengers/:id" do
