@@ -18,7 +18,7 @@ class ApplicationController < Sinatra::Base
 
     # Link them together
     vehicle.update(driver_id: driver.id, route_id: route.id)
-    vehicle.to_json(include: %i[route driver])
+    route.to_json
   end
 
   get "/routes/:id" do
