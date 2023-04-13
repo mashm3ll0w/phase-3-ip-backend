@@ -7,6 +7,19 @@ class ApplicationController < Sinatra::Base
     routes.to_json(include: %i[vehicles drivers passengers])
   end
 
+  post "/routes" do
+    # Create the route
+    route =
+      Route.create(origin: params[:origin], destination: params[:destination])
+
+    # Find the vehicle and driver
+    vehicle = Vehicle.find(params[:vehilce_id])
+    driver = Driver.find(params[:driver_id])
+
+    # Link them together
+    vehicle.update(driver_id: driver.id, route_id: route.id)
+  end
+
   get "/routes/:id" do
     route = Route.find(params[:id])
     route.to_json(include: { vehicles: { include: %i[driver passengers] } })
