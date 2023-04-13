@@ -19,7 +19,6 @@ vehicle1 =
     registration: "00KA12",
     vehicle_type: "Land Cruiser",
     capacity: 5,
-    in_transit: false,
     driver_id: driver1.id,
     route_id: route1.id
   )
@@ -28,7 +27,6 @@ vehicle2 =
     registration: "00KA01",
     vehicle_type: "Land Rover",
     capacity: 5,
-    in_transit: false,
     driver_id: driver2.id,
     route_id: route1.id
   )
@@ -37,7 +35,6 @@ vehicle3 =
     registration: "00KA03",
     vehicle_type: "Isuzu FVZ",
     capacity: 3,
-    in_transit: false,
     driver_id: driver3.id,
     route_id: route2.id
   )
@@ -46,7 +43,6 @@ vehicle4 =
     registration: "00KA06",
     vehicle_type: "Bus",
     capacity: 5,
-    in_transit: false,
     driver_id: driver4.id,
     route_id: route3.id
   )
@@ -55,7 +51,6 @@ vehicle5 =
     registration: "00KA08",
     vehicle_type: "Subaru Outback",
     capacity: 4,
-    in_transit: false,
     driver_id: driver5.id,
     route_id: route4.id
   )
