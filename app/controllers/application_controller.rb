@@ -10,26 +10,72 @@ class ApplicationController < Sinatra::Base
   post "/routes" do
     # Create the route
     route =
-      Route.create(origin: params[:origin], destination: params[:destination])
+      Route.create(
+        origin: params[:origin].capitalize(),
+        destination: params[:destination].capitalize()
+      )
     # Create Driver
-    driver = Driver.create(name: params[:driver])
+    driver = Driver.create(name: params[:driver].capitalize())
     # Create the vehicle
     vehicle =
       Vehicle.create(
-        registration: params[:registration],
-        vehicle_type: params[:vehicle_type],
+        registration: params[:registration].upcase,
+        vehicle_type: params[:vehicle_type].capitalize(),
         capacity: params[:capacity].to_i,
         route_id: route.id,
         driver_id: driver.id
       )
     # Create Passengers
-    names = params[:passengers].split(" ").join("")
-    names_array = names.split(",")
-    names_array.map do |name|
-      Passenger.create(name: name, role: "Passenger", vehicle_id: vehicle.id)
+    names_array = params[:passengers].split(" ").join("").split(",")
+    escort =
+      names_array
+        .select do |name|
+          name.split("-").length > 1 && name.split("-")[1] == "escort"
+        end
+        .join("")
+        .split("-")[
+        0
+      ]
+    senior_pax =
+      names_array
+        .select do |name|
+          name.split("-").length > 1 && name.split("-")[1] == "senior"
+        end
+        .join("")
+        .split("-")[
+        0
+      ]
+    pax_names = names_array.select { |name| name.split("-").length == 1 }
+
+    # Create escort
+    if escort
+      Passenger.create(
+        name: escort.capitalize(),
+        role: "Escort",
+        vehicle_id: vehicle.id
+      )
+    else
+      nil
+    end
+    if senior_pax
+      Passenger.create(
+        name: senior_pax.capitalize(),
+        role: "Senior Passenger",
+        vehicle_id: vehicle.id
+      )
+    else
+      nil
     end
 
-    vehicle.to_json
+    pax_names.map do |name|
+      Passenger.create(
+        name: name.capitalize(),
+        role: "Passenger",
+        vehicle_id: vehicle.id
+      )
+    end
+
+    route.to_json
   end
 
   get "/routes/:id" do
