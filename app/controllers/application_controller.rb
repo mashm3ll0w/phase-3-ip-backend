@@ -26,6 +26,26 @@ class ApplicationController < Sinatra::Base
     route.to_json(include: { vehicles: { include: %i[driver passengers] } })
   end
 
+  delete "/routes/:id" do
+    route = Route.find(params[:id])
+    vehicles = Vehicle.all.select { |vehicle| vehicle.route_id == route.id }
+    vehicle_ids = vehicles.map { |vehicle| vehicle.id }
+
+    # Find all passengers
+    passengers =
+      vehicle_ids
+        .map do |id|
+          Passenger.all.select { |passenger| passenger.vehicle_id == id }
+        end
+        .flatten
+
+    # Delete the route, the vehicle and the passengers
+    route.destroy
+    vehicles.map { |vehicle| vehicle.destroy }
+    passengers.map { |passenger| passenger.destroy }
+    { message: "Route and dependencies deleted!" }.to_json
+  end
+
   get "/vehicles" do
     vehicles = Vehicle.all
     vehicles.to_json(include: %i[driver route])
