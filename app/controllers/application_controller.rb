@@ -13,11 +13,12 @@ class ApplicationController < Sinatra::Base
       Route.create(origin: params[:origin], destination: params[:destination])
 
     # Find the vehicle and driver
-    vehicle = Vehicle.find(params[:vehilce_id])
+    vehicle = Vehicle.find(params[:vehicle_id])
     driver = Driver.find(params[:driver_id])
 
     # Link them together
     vehicle.update(driver_id: driver.id, route_id: route.id)
+    vehicle.to_json(include: %i[route driver])
   end
 
   get "/routes/:id" do
