@@ -75,7 +75,7 @@ class ApplicationController < Sinatra::Base
       )
     end
 
-    route.to_json
+    route.to_json(include: { vehicles: { include: %i[driver passengers] } })
   end
 
   get "/routes/:id" do
