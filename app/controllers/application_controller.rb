@@ -1,6 +1,25 @@
 class ApplicationController < Sinatra::Base
   set :default_content_type, "application/json"
 
+  get "/" do
+    message = {
+      message: "Welcome to MovCon app",
+      routes_available: [
+        { get: "/routes" },
+        { post: "/routes" },
+        { get: "/routes/:id" },
+        { delete: "/routes/:id" },
+        { get: "/vehicles" },
+        { get: "/vehicles/:id" },
+        { get: "/passengers" },
+        { get: "/passengers/:id" },
+        { get: "/drivers" },
+        { get: "/drivers/:id" }
+      ]
+    }
+    message.to_json
+  end
+
   # Add your routes here
   get "/routes" do
     routes = Route.all
