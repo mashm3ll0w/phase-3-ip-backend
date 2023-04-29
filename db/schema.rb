@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_04_13_113926) do
+ActiveRecord::Schema.define(version: 2023_04_29_193339) do
+
+  create_table "caffe_items", force: :cascade do |t|
+    t.string "name"
+    t.string "type_"
+    t.integer "price"
+    t.string "size"
+    t.string "description"
+    t.string "poster_url"
+  end
 
   create_table "drivers", force: :cascade do |t|
     t.string "name"

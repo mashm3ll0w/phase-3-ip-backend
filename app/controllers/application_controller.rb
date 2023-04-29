@@ -190,4 +190,34 @@ class ApplicationController < Sinatra::Base
       }
     )
   end
+
+  # Custom methods for getting data for the CanopyCaffe App => https://app.netlify.com/sites/canopy-caffe/
+  get "/caffe" do
+    caffe_items = CaffeItem.all
+    caffe_items.to_json
+  end
+
+  post "/caffe" do
+    new_caffe_item =
+      CaffeItem.create(
+        name: params[:name],
+        type_: params[:type],
+        price: params[:price].to_i,
+        size: params[:size],
+        description: params[:description],
+        poster_url: params[:poster_url]
+      )
+    new_caffe_item.to_json
+  end
+
+  get "/caffe/:id" do
+    caffe_item = CaffeItem.find(params[:id])
+    caffe_item.to_json
+  end
+
+  delete "/caffe/:id" do
+    caffe_item = CaffeItem.find(params[:id])
+    caffe_item.destroy
+    { message: "Successfully deleted!" }.to_json
+  end
 end

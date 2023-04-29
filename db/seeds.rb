@@ -110,4 +110,157 @@ pax16 =
     vehicle_id: vehicle5.id
   )
 
+# Custom seeding for the Canopy-Caffe Project
+# Before you give me stick for doing this, think about the effeciency, not having to do shit all over again
+# Of course its going to be a nightmare to know what went wrong where but hey, we live in a crazy world huh?
+
+CaffeItem.create(
+  [
+    {
+      name: "Cappuccino",
+      type_: "Coffee",
+      price: 350,
+      size: "large",
+      description: "A Cappuccino a day keeps grumpy away!",
+      poster_url: "https://rickandmortyapi.com/api/character/avatar/1.jpeg"
+    },
+    {
+      name: "Espresso",
+      type_: "Coffee",
+      price: 250,
+      size: "small",
+      description: "More Espressoo Less Depresso",
+      poster_url: "https://rickandmortyapi.com/api/character/avatar/2.jpeg"
+    },
+    {
+      name: "Kenyan Tea",
+      type_: "Tea",
+      price: 250,
+      size: "medium",
+      description: "Karibu Chai!",
+      poster_url: "https://rickandmortyapi.com/api/character/avatar/3.jpeg"
+    },
+    {
+      name: "Macha",
+      type_: "Tea",
+      price: 300,
+      size: "medium",
+      description: "You mean so Macha to me!",
+      poster_url: "https://rickandmortyapi.com/api/character/avatar/4.jpeg"
+    },
+    {
+      name: "Orange",
+      type_: "Juice",
+      price: 350,
+      size: "medium",
+      description: "Squeeze out that creative juice!",
+      poster_url: "https://rickandmortyapi.com/api/character/avatar/5.jpeg"
+    },
+    {
+      name: "Mango",
+      type_: "Juice",
+      price: 350,
+      size: "medium",
+      description: "The Juice is worth the squeeze!",
+      poster_url: "https://rickandmortyapi.com/api/character/avatar/6.jpeg"
+    },
+    {
+      name: "Chocolate Delight",
+      type_: "Milkshake",
+      price: 450,
+      size: "large",
+      description: "A little too much chocolate is just about right!",
+      poster_url: "https://rickandmortyapi.com/api/character/avatar/7.jpeg"
+    },
+    {
+      name: "Vanilla",
+      type_: "Milkshake",
+      price: 450,
+      size: "large",
+      description: "Milk shake it up!",
+      poster_url: "https://rickandmortyapi.com/api/character/avatar/8.jpeg"
+    },
+    {
+      name: "Puff Pastry",
+      type_: "Pastry",
+      price: 300,
+      size: "small",
+      description: "Life is better with freshly baked goods!",
+      poster_url: "https://rickandmortyapi.com/api/character/avatar/9.jpeg"
+    },
+    {
+      name: "Latte",
+      type_: "Coffee",
+      price: 350,
+      size: "large",
+      description: "I like you a Latte!",
+      poster_url: "https://rickandmortyapi.com/api/character/avatar/712.jpeg"
+    },
+    {
+      name: "Tamarind",
+      type_: "Juice",
+      price: 500,
+      size: "large",
+      description: "Who does not love ukwaju!",
+      poster_url: "https://rickandmortyapi.com/api/character/avatar/56.jpeg"
+    },
+    {
+      name: "Yoggo Yoggo",
+      type_: "MilkShake",
+      price: 550,
+      size: "medium",
+      description: "Shake up your taste buds!!",
+      poster_url: "https://rickandmortyapi.com/api/character/avatar/187.jpeg"
+    },
+    {
+      name: "Java ",
+      type_: "Coffee",
+      price: 250,
+      size: "medium",
+      description: "Kenya Halisi",
+      poster_url: "https://rickandmortyapi.com/api/character/avatar/72.jpeg"
+    },
+    {
+      name: "Strong Tea",
+      type_: "Tea",
+      price: 100,
+      size: "small",
+      description: "Chai Yetu",
+      poster_url: "https://rickandmortyapi.com/api/character/avatar/21.jpeg"
+    },
+    {
+      name: "Fanta Orange",
+      type_: "Soda",
+      price: 80,
+      size: "small",
+      description: "Kenya's favorite soda!",
+      poster_url: "https://rickandmortyapi.com/api/character/avatar/70.jpeg"
+    },
+    {
+      name: "Nesquick ",
+      type_: "Tea",
+      price: 600,
+      size: "small",
+      description: "Great Company!",
+      poster_url: "https://rickandmortyapi.com/api/character/avatar/90.jpeg"
+    },
+    {
+      name: "Macchiato",
+      type_: "Coffee",
+      price: 700,
+      size: "small",
+      description: "A Rare Taste!",
+      poster_url: "https://rickandmortyapi.com/api/character/avatar/100.jpeg"
+    },
+    {
+      name: "Malindicatto",
+      type_: "Coffee",
+      price: 700,
+      size: "medium",
+      description: "A floral summer coffee!",
+      poster_url: "https://rickandmortyapi.com/api/character/avatar/77.jpeg"
+    }
+  ]
+)
+
 puts "✅ Done seeding!"
