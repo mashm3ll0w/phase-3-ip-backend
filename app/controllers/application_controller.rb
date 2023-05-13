@@ -220,4 +220,11 @@ class ApplicationController < Sinatra::Base
     caffe_item.destroy
     { message: "Successfully deleted!" }.to_json
   end
+
+  # Custom health route for the render hosting platform
+  get "/health_check" do
+    # status 200
+    # {message: "The app is healthy"}.to_json
+    halt 200, {message: "App is healthy"}.to_json
+  end
 end
